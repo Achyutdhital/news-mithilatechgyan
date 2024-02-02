@@ -1,0 +1,261 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<main>
+
+    <!--advertisement-section-->
+    
+    <!--advertisement-section-->
+
+    <!-- news section with multiple news -->
+    <div class="news__section-with-multiple-news">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-xl-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="newsTech_section-title-main-wrapper">
+                                <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                     
+                                    <a>
+                                        {% if sub_category %}
+                                        {{ sub_category.subcategorie_name }} ({{ main_category.categorie_name }})
+                                    {% else %}
+                                        {{ main_category.categorie_name }}
+                                    {% endif %}
+                                   </a> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content__right">
+                         
+                        <div class="latest__content">
+                            {% for news_item in news_list|slice:1 %}
+                            <div class="latest__content-img">
+                                
+                                <a href="{% url  'app:newsDetails' news_item.news_slug  %}">
+                                    <img src="{{news_item.image.url}}" alt="{{ news_item.title }}">
+                                </a>
+                            </div>
+                            <div class="latest__content-desc">
+                                <div class="single_row-title">
+                                    <h2>
+                                        <a href="{% url  'app:newsDetails' news_item.news_slug  %}">
+                                        
+                                            {{ news_item.title }}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <p class="details__desc">
+                                    {{ news_item.sub_heading |safe }}
+                                </p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="row">
+                            {% for news in news_list|slice:"1:25" %}
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="single_grid-wrapper mb-30">
+                                        <div class="single_grid-image mb-15">
+                                            <div class="image-size image-size-60">
+                                                
+                                                <a href="{% url 'app:newsDetails' news.news_slug %}">
+                                                    <img src={{news.image.url}} alt="{{news.title}}">
+                                                </a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="single_grid-info ">
+                                            <div class="single_grid-title mb-10">
+                                                <h4>
+                                                    <a href="{% url 'app:newsDetails' news.news_slug  %}">
+                                                        {{news.title}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div class="postmeta mb-15">
+                                                <div class="postmeta_date">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}"></a>
+                                                        <span><i class="fa-solid fa-calendar-days"></i></span> {{news.update_date}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}       
+                               
+                        </div>
+
+                        
+
+                    <style>.dot-list{font-weight:bold;letter-spacing:7px}.total-pages{width:100%;display:flex;flex-direction:row;justify-content:center;align-items:center;text-align:center;margin-top:10px;color:#999}</style>
+
+                    <!-- pagination -->
+                    <nav class="pagination__section">
+                        <ul>
+                            {% if page_obj.has_previous %}
+                            <li>
+                                <a class="pagination__link prev" href="?page=1">
+                                    <span>
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% for i in page_obj.paginator.page_range %}
+                            <li>
+                                <a class="{% if page_obj.number == i %}pagination__link active{% else %}pagination__link{% endif %}" href="?page={{ i }}">
+                                    <span>{{ i }}</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <li>
+                                <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination__link next">
+                                    <span>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <div class='total-pages'>
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </div>
+                    </nav>
+
+
+                    </div>
+                </div>
+
+                <div class="col-xl-3">
+                    <!-- right content -->
+                    <div class="sidebar sticky__sidebar">
+                        <!--advertisement-section-->
+                        
+                        <!--advertisement-section-->
+
+                        <!-- sidebar section -->
+                        <div class="newsTech_content-wrapper">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="newsTech_section-title-main-wrapper">
+                                        <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                            <a>
+                                                ट्रेन्डिङ समाचार
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="newsTech_side-wrapper newsTech_side-min-lgflex">
+                                <ul>
+                                    {% for news in trending%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-70">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src="{{news.image.url}}" alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="postmeta mb-2">
+                                                    <div class="postmeta_date">
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            <span><i class="fa-solid fa-calendar-days"></i></span>{{news.update_date}}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_row-title">
+                                                    <h4>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                           {{news.title}}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- end of sidebar section -->
+
+                        <!--advertisement-section-->
+                        
+                        <!--advertisement-section-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of news section with multiple news -->
+
+    <!--advertisement-section-->
+    
+    <!--advertisement-section-->
+
+    
+    <div class="custom-container mb-30">
+        <div class="row">
+            <div class="col-12">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        <a>
+                            पछिल्ला समाचार   
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            {%for news in latest %}
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single_grid-wrapper">
+                        <div class="single_grid-image mb-15">
+                            <div class="image-size image-size-60">
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    <img src={{news.image.url}} alt="{{news.title}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="single_grid-info ">
+                            <div class="single_grid-title mb-10">
+                                <h4>
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        {{news.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="postmeta mb-15">
+                                <div class="postmeta_date">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <span><i class="fa-solid fa-calendar-days"></i></span>{{news.update_date}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</main>
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="contact__section mb-30 mt-30">
+        <div class="custom-container">
+            
+            <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="detail__wrapper">
+                        {%for about in about%}
+                        <div class="email__link">
+                            <a href="mailto: {{about.email}}">
+                                <div class="icon">
+                                    <svg class="svg-inline--fa fa-envelope" aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z"></path></svg><!-- <i class="far fa-envelope"></i> Font Awesome fontawesome.com -->
+                                </div>
+                                <span>
+                                    {{about.email}}
+                                </span>
+                            </a>
+                        </div>
+                        
+                        <!-- contact links -->
+                        <div class="contact__details">
+                            <p class="phone">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-phone" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"></path></svg><!-- <i class="fas fa-phone"></i> Font Awesome fontawesome.com -->
+                                </span>
+                                <span>
+                                    <a href="tel: 01-5244861">
+                                        {{about.contactNo}}
+                                    </a>
+                                </span>
+                            </p>
+                            
+                        </div>
+
+                        <!-- address -->
+                        <div class="contact__address">
+                            <p class="location">
+                                <span class="icon">
+                                    <svg class="svg-inline--fa fa-map-pin" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-pin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M320 144C320 223.5 255.5 288 176 288C96.47 288 32 223.5 32 144C32 64.47 96.47 0 176 0C255.5 0 320 64.47 320 144zM192 64C192 55.16 184.8 48 176 48C122.1 48 80 90.98 80 144C80 152.8 87.16 160 96 160C104.8 160 112 152.8 112 144C112 108.7 140.7 80 176 80C184.8 80 192 72.84 192 64zM144 480V317.1C154.4 319 165.1 319.1 176 319.1C186.9 319.1 197.6 319 208 317.1V480C208 497.7 193.7 512 176 512C158.3 512 144 497.7 144 480z"></path></svg><!-- <i class="fas fa-map-pin"></i> Font Awesome fontawesome.com -->
+                                </span>
+                                <span>
+                                    {{about.address}}
+                                </span>
+                            </p>
+                        </div>
+                        
+                        <!-- social media links -->
+                        <div class="newsTech_footer-social-icon d-flex flex-wrap ">
+                            {%if about.facebookUrl%}
+                            <div class="newsTech_footer-social-icon-items facebook">
+                                <a target="_blank" href="{{about.facebookUrl}}">
+                                    <svg class="svg-inline--fa fa-facebook-f" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M279.1 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.4 0 225.4 0c-73.22 0-121.1 44.38-121.1 124.7v70.62H22.89V288h81.39v224h100.2V288z"></path></svg><!-- <i class="fa-brands fa-facebook-f"></i> Font Awesome fontawesome.com -->
+                                </a>
+                            </div>
+                            {%endif%}
+
+                            {%if about.twitterUrl%}
+                            <div class="newsTech_footer-social-icon-items twitter">
+                                <a target="_blank" href="{{about.twitterUrl}}">
+                                    <svg class="svg-inline--fa fa-twitter" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M459.4 151.7c.325 4.548 .325 9.097 .325 13.65 0 138.7-105.6 298.6-298.6 298.6-59.45 0-114.7-17.22-161.1-47.11 8.447 .974 16.57 1.299 25.34 1.299 49.06 0 94.21-16.57 130.3-44.83-46.13-.975-84.79-31.19-98.11-72.77 6.498 .974 12.99 1.624 19.82 1.624 9.421 0 18.84-1.3 27.61-3.573-48.08-9.747-84.14-51.98-84.14-102.1v-1.299c13.97 7.797 30.21 12.67 47.43 13.32-28.26-18.84-46.78-51.01-46.78-87.39 0-19.49 5.197-37.36 14.29-52.95 51.65 63.67 129.3 105.3 216.4 109.8-1.624-7.797-2.599-15.92-2.599-24.04 0-57.83 46.78-104.9 104.9-104.9 30.21 0 57.5 12.67 76.67 33.14 23.72-4.548 46.46-13.32 66.6-25.34-7.798 24.37-24.37 44.83-46.13 57.83 21.12-2.273 41.58-8.122 60.43-16.24-14.29 20.79-32.16 39.31-52.63 54.25z"></path></svg><!-- <i class="fa-brands fa-twitter"></i> Font Awesome fontawesome.com -->
+                                </a>
+                            </div>
+                            {%endif%}
+                            {%if about.instaUrl%}
+                            <div class="newsTech_footer-social-icon-items instagram">
+                                <a target="_blank" href="{{about.instaUrl}}">
+                                    <svg class="svg-inline--fa fa-instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg><!-- <i class="fa-brands fa-instagram"></i> Font Awesome fontawesome.com -->
+                                </a>
+                            </div>
+                            {%endif%}
+                            {%if about.youtubeUrl%}
+                            <div class="newsTech_footer-social-icon-items youtube">
+                                <a target="_blank" href="{{about.youtubeUrl}}">
+                                    <svg class="svg-inline--fa fa-youtube" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.7 124.1c-6.281-23.65-24.79-42.28-48.28-48.6C458.8 64 288 64 288 64S117.2 64 74.63 75.49c-23.5 6.322-42 24.95-48.28 48.6-11.41 42.87-11.41 132.3-11.41 132.3s0 89.44 11.41 132.3c6.281 23.65 24.79 41.5 48.28 47.82C117.2 448 288 448 288 448s170.8 0 213.4-11.49c23.5-6.321 42-24.17 48.28-47.82 11.41-42.87 11.41-132.3 11.41-132.3s0-89.44-11.41-132.3zm-317.5 213.5V175.2l142.7 81.21-142.7 81.2z"></path></svg><!-- <i class="fa-brands fa-youtube"></i> Font Awesome fontawesome.com -->
+                                </a>
+                            </div>
+                            {%endif%}
+                            {%if about.tiktokUrl%}
+                            <div class="newsTech_footer-social-icon-items tiktok">
+                                <a target="_blank" href="{{about.tiktokUrl}}">
+                                    <svg class="svg-inline--fa fa-tiktok" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="tiktok" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.25V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.2 121.2 0 0 0 1.86 22.17h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.14z"></path></svg><!-- <i class="fa-brands fa-tiktok"></i> Font Awesome fontawesome.com -->
+                                </a>
+                            </div>
+                            {%endif%}
+                        </div>
+                        {%endfor%}
+                        <!-- map location -->
+                        <div class="map__location">
+                            <iframe id="mapLocation" src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d28255.77721277381!2d85.31318433704642!3d27.718146098379744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d27.7406488!2d85.3239596!4m5!1s0x39eb199cb5cdd037%3A0xd0b9ef506023ce05!2stechpana!3m2!1d27.6957456!2d85.3282899!5e0!3m2!1sen!2snp!4v1583050488414!5m2!1sen!2snp" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="contact__form mb-30 mb-lg-0">
+                        <form action="{%url 'app:contact'%}" method="POST">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <h1 class="detail__wrapper-title">
+                                हामीलाई सम्पर्क गर्नुहोस् |
+                            </h1>
+            
+                            <div class="input__grid">
+                                <div class="input__group">
+                                    <label for="">तपाईंको पुरा नाम* </label>
+                                    <input type="text" name="name" autocomplete="off" required="">
+                                </div>
+                                <div class="input__group">
+                                    <label for="">ईमेल ठेगाना* </label>
+                                    <input type="email" name="email" autocomplete="off" required="">
+                                </div>
+                                <div class="input__group">
+                                    <label for="">विषय* </label>
+                                    <input type="text" name="subject" autocomplete="off" required="">
+                                </div>
+                                <div class="input__group">
+                                    <label for="">सन्देश* </label>
+                                    <textarea name="message" required=""></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form__button">
+                                <button type="submit" class="btn__submit">
+                                    <span>
+                                        पठाउनुहोस
+                                    </span>
+                                </button>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{%endblock%}

@@ -1,0 +1,1756 @@
+{% extends "app/base.html" %}
+{% load static %}
+<!-- Homepage Road BLock Advertisement Modal -->
+
+{% block content %}
+<!--advertisement-section-->
+
+    
+        <div class="newsTech-ads mt-30">
+            
+                
+                    <div class="custom-container">
+                        
+                            <div class="adalyticsblock" campaign="wUWzOs6557s6ifpe0VkRj8kDwrSjjHeVn1zY5U1ESGWCfrBo2k" width="100%"><img width="100%" height="undefined" src="https://adalytics.prixacdn.net/media/albums/logitechG_MkkslhiIOd.gif"></div>
+                        
+                    </div>
+                
+            
+        </div>    
+                
+
+<!--advertisement-section-->
+
+<!--feature-section-start-->
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            
+            
+            <div class="col-xl-8">
+                <div class="newsTech_section-title mb-30">
+                    <a>
+                        ट्रेन्डिङ समाचार
+                    </a>
+                </div>
+                <div class="row zero-margin">
+                    
+                    <div class="col-lg-12 zero-padding">
+                        <div class="newsTech_feature-main">
+                            <div class="single_grid-wrapper single_grid-overlay-wrapper">
+                                {% for news in trending|slice:":1"%}
+                                <div class="single_grid-image">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src="{{news.image.url}}" alt="{{news.title}}">
+                                    </a> 
+                                </div>
+                                <div class="single_grid-info single_grid-info-overlay">
+                                    <div class="single_grid-title newsTech_white ">
+                                        <h1>
+                                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                {{news.title}}
+                                            </a>
+                                        </h1>
+                                    </div>
+                                    <div class="single_grid-para mt-1 ">
+                                        <p>&nbsp;{{news.discriptions|slice:75|safe}}</p>
+                                    </div>
+                                </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-12 zero-padding">
+                        
+                        <div class="newsTech_feature-list ">
+                            <ul>
+                                {% for news in trending|slice:"1:5"%}
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                    <img src="{{news.image.url}}" alt="{{news.title}}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-info">
+                                            <div class="single_row-title newsTech_white">
+                                                <h4>
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        {{news.title}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {%endfor%}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {% comment %} {%if trending%} {% endcomment %}
+            <div class="col-xl-4 d-none d-sm-block">
+                <div class=" sticky__sidebar-60">
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    
+                                    {% for news in trending|slice:"5:12"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-70">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src="{{news.image.url}}" alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="postmeta mb-2">
+                                                    <div class="postmeta_date">
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            <span><i class="fa-solid fa-calendar-days"></i></span>{{news.update_date}}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_row-title">
+                                                    <h4>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                           {{news.title}}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+            
+        </div>
+    </div>
+</section>
+
+<!--feature-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!-- start update-section -->
+
+{% comment %} {% if latest%} {% endcomment %}
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="newsTech_section-title-main-wrapper">
+            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                <a href='category/previous-updates/index.html'>
+                    पछिल्ला अपडेट
+                 </a>
+             </div>
+         </div>
+         <div class="grid_section-wrapper hiddenContent removedAni">
+             <div class="grid_section-content single_grid-overlay-wrapper ">
+                {% for news in latest|slice:1 %}
+                 <div class="single_grid-wrapper">
+                     <div class="single_grid-image single_grid-image-update">
+                        <div class="image-size image-size-80">
+                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                <img src={{news.image.url}} alt="{{news.title}}">
+                            </a>
+                        </div>
+                     </div>
+                     <div class="single_grid-info single_grid-info-overlay">
+                         <!-- <div class="postmeta mb-15">
+                             <div class="postmeta_category ">
+                                 <a href="/category/previous-updates">
+                                    पछिल्ला अपडेट
+                                 </a>
+                             </div>
+                         </div> -->
+                         <div class="single_grid-title newsTech_white ">
+                             <h3>
+                                 <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                   {{news.title}}
+                                 </a>
+                             </h3>
+                         </div>
+                     </div>
+                 </div>
+                 {% endfor %}
+             </div>
+             
+             {% for news in latest|slice:"1:" %}
+                <div class="grid_section-content">
+                    
+                    <div class="single_row-wrapper">
+                        <div class="single_row-side-image">
+                            <div class="image-size image-size-80">
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    <img src={{news.image.url}} alt="{{news.title}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="single_row-side-info">
+                            <div class="single_row-title mb-2">
+                                <h5>
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        {{news.title}}
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+         </div>
+         <!-- view more button -->
+         <div class="view__all">
+             <a href="#" class="reveal__content">
+                 <i class="fas fa-chevron-down"></i>
+             </a>
+         </div>
+     </div>
+ </section>
+ 
+ {% comment %} {%endif%} {% endcomment %}
+ <!-- end update-section -->
+
+<!--advertisement-section-->
+
+    
+        
+            <div class="newsTech-ads mt-15 mb-30">
+                <div class="custom-container">
+                    
+                        
+                            <div class="adalyticsblock" campaign="wchnqDxK9wZolUX1l4cj4Suyz3JyaZRa41D4L6Lcf3shPNrdI8" width="100%"></div>
+                        
+                    
+                </div>  
+            </div>
+          
+        
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+{% comment %} {%if firstCategorieNews%} {% endcomment %}
+<section class="newsTech_section-wrapper newsTech_mobile-view-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in firstCategorie%}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                            {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for news in firstCategorieNews|slice:":1" %}
+            <div class="col-xl-6">
+                <div class="single_grid-wrapper mb-30 mb-xl-0">
+                    <div class="single_grid-image mb-15">
+                        <div class="image-size image-size-60">
+                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                <img src={{news.image.url}} alt="{{news.title}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_grid-info ">
+                        <div class="single_grid-title mb-10">
+                            <h3>
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    {{news.title}}
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="single_grid-para  ">
+                            <p>&nbsp;
+                                {{news.discriptions|safe|slice:150}} 
+                            </p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="col-xl-6 hiddenContent">
+                <div class="row">
+                    {% for news in firstCategorieNews|slice:"1:2" %}
+                    <div class="col-12">
+                        <div class="single_row-wrapper mb-30">
+                            <div class="single_row-image">
+                                <div class="image-size image-size-80">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src="{{news.image.url}}" alt="{{news.title}}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="single_row-info">
+                                <div class="single_row-title mb-15">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                           {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_row-para">
+                                    <p>{{news.discription|safe|slice:150}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {% for news in firstCategorieNews|slice:"2:" %}
+                    <div class="col-md-6">
+                        <div class="single_row-wrapper mb-15">
+                            <div class="single_row-side-image">
+                                <div class="image-size image-size-80">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src="{{ news.image.url}}" alt="{{news.title}}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="single_row-side-info">
+                                <div class="single_row-title ">
+                                    <h5>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                </div>
+            </div>
+            <!-- view more button -->
+            <div class="view__all">
+                <a href="#" class="reveal__content">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% comment %} {%endif%} {% endcomment %}
+
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+{% comment %} {%if scondNewsSection%} {% endcomment %}
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in secondCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                       
+                           {{category.categorie_name}}
+                     
+                        </a> 
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newsTech_main-news-wrapper mb-30">
+            <div class="row">
+                {% for news in scondNewsSection|slice:1 %}
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="newsTech_section-image mb-30 mb-lg-0">
+                                <div class="image-size image-size-70">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="newsTech_main-news-space flex-center">
+                                <div class="newsTech_section-info">
+                                    <div class="single_row-title mb-2">
+                                        <h3>
+                                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                {{news.title}}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="single_row-para">
+                                        <p>
+                                            {{news.discriptions|safe|slice:150}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                <div class="col-lg-3">
+                    
+                        
+                            
+                                <!--advertisement-section-->
+                                <div class="newsTech-ads mt-30">
+                                    
+                                        
+                                            <div class="adalyticsblock" campaign="FvNRdNFKabev3Zhu00mQ4EtcFWqFDscf19xOhBWikY7CrCq9yV" width="100%"></div>
+                                        
+                                        
+                                </div>
+                                <!--advertisement-section-->
+                            
+                        
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for news in scondNewsSection|slice:"1:5" %}
+            <div class="col-6 col-lg-3">
+                <div class="single_grid-wrapper mb-30 mb-lg-0">
+                    <div class="single_grid-image mb-15">
+                        <div class="image-size image-size-60">
+                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                <img src={{news.image.url}} alt="{{news.title}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_grid-info ">
+                        <div class="single_grid-title ">
+                            <h4>
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    {{news.title}}
+                                </a>
+                            </h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            
+        </div>
+    </div>
+</section>
+{% comment %} {%endif%} {% endcomment %}
+
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+<!--news-block-section-end-->
+
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+{% comment %} {%if thirdSectionNews%} {% endcomment %}
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="newsTech_section-title-main-wrapper">
+            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                {%for category in thirdCategorie %}
+                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                    {{category.categorie_name}}
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="row">
+            {%for news in thirdSectionNews|slice:4%}
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="single_grid-wrapper">
+                    <div class="single_grid-image mb-15">
+                        <div class="image-size image-size-60">
+                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                <img src={{news.image.url}} alt="{{news.title}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single_grid-info ">
+                        <div class="single_grid-title mb-10">
+                            <h4>
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    {{news.title}}
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+{% comment %} {%endif%} {% endcomment %}
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-gadgets-section-start-->
+{% comment %} 
+<section class="d-sm-none">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="newsTech_content-wrapper">
+                    <div class="newsTech_section-title mb-30">
+                        <a href="category/gadgets.html">
+                            ग्याजेट्स
+                        </a>
+                    </div>
+                    <div class="newsTech_side-wrapper">
+                        <div class="newsTech_side-list newsTech_side-min-lgflex">
+                            <ul>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143952/huawei-targets-global-smartphone-market-with-mate-60-launch.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/huawei-mate-60-pro_syLM4lgnrD.png.405x290_q100_crop.jpg'%} alt="स्मार्टफोन बजारमा पुनरागमन गर्ने प्रयासमा ह्वावे, मेट ६० आएसँगै बढायो बजार लक्ष्य">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143952/huawei-targets-global-smartphone-market-with-mate-60-launch.html">
+                                                        स्मार्टफोन बजारमा पुनरागमन गर्ने प्रयासमा ह्वावे, मेट ६० आएसँगै बढायो बजार लक्ष्य
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143946/iphone-15-to-include-battery-charge-limiting-option.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/iphone_15_battery_limit_techpana_news__PrEQDP7tJB.jpg.405x290_q100_crop.jpg'%} alt="आईफोनको ब्याट्री हेल्थ खस्किएको गुनासो बढेपछि ‘मेक्सिमम चार्ज लिमिट’ फिचर ल्याउँदै एप्पल">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143946/iphone-15-to-include-battery-charge-limiting-option.html">
+                                                        आईफोनको ब्याट्री हेल्थ खस्किएको गुनासो बढेपछि ‘मेक्सिमम चार्ज लिमिट’ फिचर ल्याउँदै एप्पल
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143945/hmd-global-to-make-hmd-branded-smartphones.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/hmd-global-smartphone_Q0S7R7wCxv.png.405x290_q100_crop.jpg'%} alt="नोकिया मोबाइल निर्माता एचएमडी ग्लोबलले अब आफ्नै ब्राण्डमा स्मार्टफोन ल्याउने">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143945/hmd-global-to-make-hmd-branded-smartphones.html">
+                                                        नोकिया मोबाइल निर्माता एचएमडी ग्लोबलले अब आफ्नै ब्राण्डमा स्मार्टफोन ल्याउने
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143941/apple-watch-series-9.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/apple_watch_series_9_techpana_news__A30s4bh1U7.jpg.405x290_q100_crop.jpg'%} alt="एप्पल वाच सिरिज नाइन सार्वजनिक, दुई औंला जोडेकै भरमा कल उठाउन र काट्न सकिने">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143941/apple-watch-series-9.html">
+                                                        एप्पल वाच सिरिज नाइन सार्वजनिक, दुई औंला जोडेकै भरमा कल उठाउन र काट्न सकिने
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143939/how-different-is-iphone-15-pro-and-pro-max-from-other-models.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/iphone_15_pro_max__oTaOPWAcHt.jpg.405x290_q100_crop.jpg'%} alt="अन्य मोडेलभन्दा कति फरक छ आईफोन १५ प्रो र प्रो म्याक्स ?">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143939/how-different-is-iphone-15-pro-and-pro-max-from-other-models.html">
+                                                        अन्य मोडेलभन्दा कति फरक छ आईफोन १५ प्रो र प्रो म्याक्स ?
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-80">
+                                                <a href="2023/143938/iphone-15-pro-and-pro-maxma-type-c-external-storage.html">
+                                                    <img src={% static 'app/techpana.prixacdn.net/media/albums/iphone_15_pro_internal_storage_techpana_news__ppMDCDRP8s.jpg.405x290_q100_crop.jpg'%} alt="आईफोन १५ प्रो र प्रो म्याक्समा टाइप-सीमार्फत एक्सटर्नल स्टोरेज">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+
+                                            <div class="single_row-title mb-2">
+                                                <h5>
+                                                    <a href="2023/143938/iphone-15-pro-and-pro-maxma-type-c-external-storage.html">
+                                                        आईफोन १५ प्रो र प्रो म्याक्समा टाइप-सीमार्फत एक्सटर्नल स्टोरेज
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
+
+<!--news-gadgets-section-end-->
+
+<!--news-block-section-start-->
+{% comment %} {%if fourthSectionNews%} {% endcomment %}
+<section class="newsTech_section-wrapper newsTech_mobile-view-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in fourthCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-xl-8">
+                {%for news in fourthSectionNews|slice:1%}
+                <div class="newsTech_content-wrapper mb-30">
+                    <div class="single_grid-wrapper single_grid-overlay-wrapper">
+                        <div class="single_grid-image">
+                            <div class="image-size image-size-60">
+                                
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    <img src={{news.image.url}} alt="{{news.title}}">
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <div class="single_grid-info single_grid-info-overlay">
+                            <div class="postmeta postmeta_dark  mb-15">
+                              
+
+                            </div>
+                            <div class="single_grid-title newsTech_white ">
+                                <h3>
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        {{news.title}}
+                                    </a>
+                                </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                <div class="row removeNews">
+                    {%for news in firstCategorieNews|slice:"1:4"%}
+                    <div class="col-md-4">
+                        <div class="single_grid-wrapper">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-60">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title ">
+                                    <h4>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}   
+                </div>
+            </div>
+            
+            <div class="col-xl-4 hiddenContent">
+                <div class="newsTech_content-wrapper mt-30 mt-xl-0 sticky__sidebar">
+                    <div class="newsTech_side-wrapper newsTech_side-min-lgflex">
+                        <ul>
+                            {%for news in firstCategorieNews|slice:"4:11"%}
+                            <li>
+                                <div class="single_row-wrapper">
+                                    <div class="single_row-side-image">
+                                        <div class="image-size image-size-70">
+                                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                <img src={{news.image.url}} alt="{{news.title}}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="single_row-side-info">
+                                        <div class="postmeta mb-2">
+                                        </div>
+                                        <div class="single_row-title">
+                                            <h4>
+                                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                    {{news.title}}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {%endfor%}
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- view more button -->
+            <div class="view__all">
+                <a href="#" class="reveal__content">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% comment %} {%endif%} {% endcomment %}
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            {% comment %} {% if fifthSectionNews %} {% endcomment %}
+            <div class="col-xl-9">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in fifthCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="row">
+                    {%for news in fifthSectionNews|slice:":1"%}
+
+                    <div class="col-lg-8">
+                        <div class="single_grid-wrapper ">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-62">
+                                    
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title mb-10">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_grid-para">
+                                    {{news.discriptions|slice:75|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                    <div class="col-lg-4 hiddenContent">
+                        <div class="newsTech_side-wrapper mt-30 mt-lg-0">
+                            <div class="newsTech_side-list newsTech_side-min-mdflex">
+                                <ul>
+                                    {%for news in fifthSectionNews|slice:"1:6"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endfor%}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- view more button -->
+                    <div class="view__all">
+                        <a href="#" class="reveal__content">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    {% comment %} {%endif%} {% endcomment %}
+    {% comment %} {% if sixthSectionNews %} {% endcomment %}
+            <div class="col-xl-3">
+                <div class="sticky__sidebar">
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                {%for category in sixthCategorie %}
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                        {{category.categorie_name}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    {%for news in sixthSectionNews|slice:":5"%}
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+        </div>
+    </div>
+</section>
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            {% comment %} {%if seventhSectionNews%} {% endcomment %}
+            <div class="col-xl-9">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in seventhCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="row">
+                    {%for news in seventhSectionNews|slice:":1"%}
+
+                    <div class="col-lg-8">
+                        <div class="single_grid-wrapper ">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-62">
+                                    
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title mb-10">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_grid-para">
+                                    {{news.discriptions|slice:75|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                    <div class="col-lg-4 hiddenContent">
+                        <div class="newsTech_side-wrapper mt-30 mt-lg-0">
+                            <div class="newsTech_side-list newsTech_side-min-mdflex">
+                                <ul>
+                                    {%for news in seventhSectionNews|slice:"1:6"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endfor%}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- view more button -->
+                    <div class="view__all">
+                        <a href="#" class="reveal__content">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+            {% comment %} {%if eighthSectionNews%} {% endcomment %}
+            <div class="col-xl-3">
+                <div class="sticky__sidebar">
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                {%for category in eighthCategorie %}
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                        {{category.categorie_name}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    {%for news in eighthSectionNews|slice:":5"%}
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+        </div>
+    </div>
+</section>
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--video-section-start-->
+
+<!--video-section-end-->
+
+<!--video-section-start-->
+
+<section class="newsTech_section-wrapper newsTech_section-wrapper-video">
+    <div class="custom-container">
+        <div class="newsTech_section-title-video newsTech_white mb-30">
+            <a href="#">
+                भिडियो
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-7 col-xl-8">
+                <div class="newsTech_content-wrapper">
+                    <div class="newsTech_video-wrapper">
+                        {%for videos in video|slice:1%}
+                        <div class="newsTech_video-main mb-30">
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1">
+                                
+                                <iframe id="player" width="640" height="360" src='{{videos.videoUrl}}' frameborder="0">
+                                </iframe>
+
+                                
+
+                                <script type="text/javascript">var tag=document.createElement('script');tag.id='iframe-demo';tag.src='https://www.youtube.com/iframe_api';var firstScriptTag=document.getElementsByTagName('script')[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player;function onYouTubeIframeAPIReady(){player=new YT.Player('player',{events:{'onReady':onPlayerReady,'onStateChange':onPlayerStateChange},});}function onPlayerReady(event){event.target.setVolume(0);event.target.playVideo();}</script>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="newsTech_video-info newsTech_video-flex">
+                            <div class="newsTech_video">
+                                <div class="newsTech_video-title newsTech_white mb-15">
+                                    <h3>
+                                        <a href="{{videos.videoUrl}}">
+                                            {{videos.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+                <div class="newsTech_content-wrapper newsTech_content-wrapper-video mt-30 mt-xl-0">
+                    <div class="newsTech_section-title-video newsTech_section-title-video-small  mb-15">
+                        अर्को हेर्नुहोस्
+                    </div>
+                    <div class="newsTech_side-wrapper">
+                        <div class=" newsTech_video-slider">
+                            {% for videos in video|slice:"1:"%}
+                            <div class="newsTech_video-content">
+                                <div class="single_row-wrapper">
+                                    <div class="single_row-video-image">
+                                        <div class="position-relative">
+                                            <div class="image-size image-size-65">
+                                                <a href="{{videos.videoUrl}}">
+                                                    <div class="video_image-dark-bg">
+                                                        <div class="image-size-div">
+                                                            <img src={{videos.thumbnail.url}} alt="">
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="video_overlay">
+                                                <a href="{{videos.videoUrl}}">
+                                                    <i class="fa-solid fa-play"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="video_hover">
+                                            <a href="{{videos.videoUrl}}">
+                                                <span>
+                                                    Play
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="single_row-video-info ">
+
+                                        <div class="single_row-title newsTech_white  single_row-line-clamp mb-2">
+                                            <h4>
+                                                <a href="{{videos.videoUrl}}">
+                                                    {{videos.title}}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--video-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--comparison-news-block-section-start-->
+
+<!--comparison-news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            {% comment %} {%if ninethCategorieNews%} {% endcomment %}
+            <div class="col-xl-9">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in ninethCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="row">
+                    {%for news in ninethSectionNews|slice:":1"%}
+                    <div class="col-lg-8">
+                        <div class="single_grid-wrapper ">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-62">
+                                    
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title mb-10">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_grid-para">
+                                    {{news.discriptions|slice:75|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                    <div class="col-lg-4 hiddenContent">
+                        <div class="newsTech_side-wrapper mt-30 mt-lg-0">
+                            <div class="newsTech_side-list newsTech_side-min-mdflex">
+                                <ul>
+                                    {%for news in ninethSectionNews|slice:"1:6"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endfor%}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} {%endif%} {% endcomment %}
+                    <!-- view more button -->
+                    <div class="view__all">
+                        <a href="#" class="reveal__content">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            {% comment %} {%if tenthSectionNews%} {% endcomment %}
+            <div class="col-xl-3">
+                <div class="sticky__sidebar">
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                {%for category in tenthCategorie %}
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                        {{category.categorie_name}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    {%for news in tenthSectionNews|slice:":5"%}
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+        </div>
+    </div>
+</section>
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            {% comment %} {%if elevenththSectionNews%} {% endcomment %}
+            <div class="col-xl-9">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in eleventhCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="row">
+                    {%for news in eleventhSectionNews|slice:":1"%}
+
+                    <div class="col-lg-8">
+                        <div class="single_grid-wrapper ">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-62">
+                                    
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title mb-10">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_grid-para">
+                                    {{news.discriptions|slice:75|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                    <div class="col-lg-4 hiddenContent">
+                        <div class="newsTech_side-wrapper mt-30 mt-lg-0">
+                            <div class="newsTech_side-list newsTech_side-min-mdflex">
+                                <ul>
+                                    {%for news in eleventhSectionNews|slice:"1:6"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endfor%}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- view more button -->
+                    <div class="view__all">
+                        <a href="#" class="reveal__content">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+            
+            {% comment %} {%if twelvethSectionNews%} {% endcomment %}
+            <div class="col-xl-3">
+                <div class="sticky__sidebar">
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                {%for category in twelvethCategorie %}
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                        {{category.categorie_name}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    {%for news in twelvethSectionNews|slice:":5"%}
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {%endif%} {% endcomment %}
+        </div>
+    </div>
+</section>
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+
+
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="row">
+            {% comment %} {%if thirteenthSectionNews%} {% endcomment %}
+            <div class="col-xl-9">
+                <div class="newsTech_section-title-main-wrapper">
+                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                        {%for category in thirteenthCategorie %}
+                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                {{category.categorie_name}}
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="row">
+                    {%for news in thirteenthSectionNews|slice:":1"%}
+
+                    <div class="col-lg-8">
+                        <div class="single_grid-wrapper ">
+                            <div class="single_grid-image mb-15">
+                                <div class="image-size image-size-62">
+                                    
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_grid-info ">
+                                <div class="single_grid-title mb-10">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{news.title}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="single_grid-para">
+                                    {{news.discriptions|slice:75|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    
+                    <div class="col-lg-4 hiddenContent">
+                        <div class="newsTech_side-wrapper mt-30 mt-lg-0">
+                            <div class="newsTech_side-list newsTech_side-min-mdflex">
+                                <ul>
+                                    {%for news in thirteenthSectionNews|slice:"1:6"%}
+                                    <li>
+                                        <div class="single_row-wrapper">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endfor%}
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} {%endif%} {% endcomment %}
+                    <!-- view more button -->
+                    <div class="view__all">
+                        <a href="#" class="reveal__content">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-xl-3">
+                <div class="sticky__sidebar">
+                    {% comment %} {%if fourteenthSectionNews%} {% endcomment %}
+                    <div class="newsTech_content-wrapper mt-30 mt-xl-0">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                {%for category in fourteenthCategorie %}
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                        {{category.categorie_name}}
+                                </a>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list newsTech_side-min-lgflex">
+                                <ul>
+                                    {%for news in fourteenthSectionNews|slice:":5"%}
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src={{news.image.url}} alt="{{news.title}}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h5>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{news.title}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} {%endif%} {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--news-block-section-end-->
+
+<!--advertisement-section-->
+
+<!--advertisement-section-->
+
+<!--news-block-section-start-->
+<section class="newsTech_section-wrapper">
+    <div class="custom-container">
+        <div class="col-lg-12">
+            <div class="row">
+                {% for category in extracategory %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="newsTech_section-title-main-wrapper">
+                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                    {{ category.categorie_name }}
+                                </a>
+                            </div>
+                        </div>
+                    
+                    
+                    <div class="newsTech_content-wrapper mb-30 mb-lg-0">
+                        {% comment %} <div class="single_grid-wrapper single_grid-overlay-wrapper mb-30">
+                            
+                            {% for news in extra%}
+                            {% if news.categorie == category%}
+                            <div class="single_grid-image">
+                                <div class="image-size image-size-65">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="single_grid-info single_grid-info-overlay">
+                                <div class="single_grid-title newsTech_white ">
+                                    <h3>
+                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                            {{ news.title }}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                            {%endif%}
+                            {% endfor %}
+                        </div>
+                     {% endcomment %}
+                        <div class="newsTech_side-wrapper">
+                            <div class="newsTech_side-list">
+                                <ul>
+                                    {% for news in extra|slice:":4"%}
+                                    {% if news.categorie == category %}
+
+                                    <li>
+                                        <div class="single_row-wrapper single_row-wrapper-reverse">
+                                            <div class="single_row-side-image">
+                                                <div class="image-size image-size-80">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-side-info">
+                                                <div class="single_row-title mb-2">
+                                                    <h4>
+                                                        <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                            {{ news.title }}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {%endif%}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- other content related to the category -->
+                    </div>
+                </div>
+                {% endfor %}  
+            </div> 
+        </div> 
+    </div>
+</section>
+{% comment %} {%endif%} {% endcomment %}
+
+
+
+<!--sticky-advertisement-start--->
+    <!-- advertisement-section -->
+    <div class="sticky-bottom-ad">
+       
+        <div class="newsTech-ads">
+            
+                
+                    <div class="adalyticsblock" campaign="fTbgm4QA7K61PC5sfuTrx5ooXSz6uJt349bCshWG4kWX4Cj6gr" width="100%"></div>
+                    
+            
+        </div>
+    </div>
+    <!-- advertisement-section -->
+<!--sticky-advertisement-end-->
+
+
+
+
+<!--news-block-section-end-->
+
+    <!-- end of main section -->
+{% endblock %}

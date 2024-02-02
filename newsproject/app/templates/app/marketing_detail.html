@@ -1,0 +1,268 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<!-- bigyapan-start -->
+
+<main>
+    <style>
+        .cut-through {
+            position: relative;
+        }
+    
+        .cut-through::before {
+            content: "";
+            position: absolute;
+            top: 50%; /* Position the line in the middle of the text */
+            left: 0;
+            right: 0;
+            border-bottom: 2px solid; /* Adjust the border properties as needed */
+        }
+        <style>
+        .details__title {
+            font-size: 35px;
+            /* Set the initial font size */
+            transition: font-size 0.3s ease-in-out;
+            margin-bottom: 10px;
+            /* Add margin to separate the title from content */
+        }
+
+        .details__title.scrolled {
+            font-size: 25px;
+            /* Set the smaller font size when scrolled */
+            margin-top: 15px;
+            /* Reduce margin when scrolled */
+        }
+
+        .details__sub-title,
+        .author__date {
+            opacity: 1;
+            /* Set the initial opacity */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .details__sub-title.scrolled,
+        .author__date.scrolled {
+            opacity: 0;
+            /* Set the opacity to 0 when scrolled */
+            margin-top: 0;
+            /* Remove top margin when scrolled */
+
+        }
+
+        .details__sub-title.hidden,
+        .author__date.hidden {
+            display: none;
+        }
+
+        .details__title {
+            font-size: 45px;
+            /* Set the initial font size */
+            transition: font-size 0.3s ease-in-out;
+            margin-bottom: 10px;
+            /* Add margin to separate the title from content */
+        }
+
+        .details__title.scrolled {
+            font-size: 25px;
+            /* Set the smaller font size when scrolled */
+            margin-top: 15px;
+            /* Reduce margin when scrolled */
+        }
+
+        .details__sub-title,
+        .author__date {
+            opacity: 1;
+            /* Set the initial opacity */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .details__sub-title.scrolled,
+        .author__date.scrolled {
+            opacity: 0;
+            /* Set the opacity to 0 when scrolled */
+            margin-top: 0;
+            /* Remove top margin when scrolled */
+
+        }
+
+        .details__sub-title.hidden,
+        .author__date.hidden {
+            display: none;
+        }
+
+    </style>
+        
+    <div class="newsTech-ads mt-30">
+            
+                
+        <div class="custom-container">
+            
+                <div class="adalyticsblock" campaign="wUWzOs6557s6ifpe0VkRj8kDwrSjjHeVn1zY5U1ESGWCfrBo2k" width="100%"><img width="100%" height="undefined" src="https://adalytics.prixacdn.net/media/albums/logitechG_MkkslhiIOd.gif"></div>
+            
+        </div>
+    
+
+</div>    
+  
+        
+    
+    <!--advertisement-section-->
+
+    <!-- news details section -->
+    <section class="custom-container mt-10">
+        <div class="for-sticky-header"></div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <!-- details content section -->
+                        <div class="news__details">
+                            <!-- content titles section -->
+                            <div class="news__details-titles">
+                                <h1 class="details__title" style="text-align: center;">
+                                    {{marketingDetails.title}}
+                                </h1>
+
+                                <h2 class="details__sub-title">
+                                    
+                                </h2>
+
+                            </div>
+
+                            <div class="">
+                               <!-- left content -->
+                                
+
+                                <div class="content__desc"style="padding-left: 25px;">
+                                   
+                                        <div class="news_detail-para para detail-content-paragraph detail-news-details-paragh ">
+                                           <span style="font-size: 25px; font-weight: bold;"> Discription:</span>
+                                           <p style="text-align: justify;">{{marketingDetails.description|safe}}</p>
+                                            
+
+
+                                        
+                                        <div class="auto__layout-ads">
+                                            
+
+                                          
+                                        
+
+                                            
+
+
+
+                                            
+
+
+                                            
+
+
+                                        <!--advertisement-section-->
+                                        
+                                            
+
+                                             <!-- after third advertisement-section-->
+                                              <div class="news_detail-image">
+                                                    <figure>
+                                                        
+                                                            
+                                                                <div class="adalyticsblock" campaign="nLoLDQNYvCYCE36fhGQbVO7NmKfSofxDYVRw7FE1X4ZRrCsTHM" width="100%"></div>
+                                                            
+                                                        
+                                                    </figure>
+                                                </div>
+
+
+                                <!--news-block-section-start-->
+                                <section class="newsTech_section-wrapper">
+                                    <div class="newsTech_section-title-main-wrapper">
+                                        <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                            <a>
+                                                Latest courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="multi__column-row mt-30">
+                                            {% for item in marketing %}
+                                            <div class="team__card" style="background-color: #e2e2e2;">
+                                              <div class="team__avatar">
+                                                <img src="{{item.image.url}}" alt="{{item.title}}" data-pagespeed-url-hash="3257740181" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                              </div>
+                                          
+                                              <div class="team__details" style="width: 100%;">
+                                                    <h2 class="person__name" style="font-family: Roboto, sans-serif; font-size: 24px; font-weight: bold;">
+                                                    {{item.title}}
+                                                    </h2>
+                                            
+                                                    <h6 class="mb-2 card-subtitle" style="margin-top: 10px;">
+                                                    <div class="d-flex" ><span style="font-size: 20px;">Rs{{item.currentPrice}} </span>
+                                                        <div class="font-sm text-gray font-regular" style="padding-right: 50px;padding-left: 15px; color:#2e302f;">
+                                                            <span class="cut-through">{{item.previousPrice}}</span>
+                                                        </div>                     
+                                                        <div class="text-success ms-2" style="padding-left: 30px;">63% off</div>
+                                                    </div>
+                                                    </h6>
+                                                    {{ item.marketing_slug}}
+                                                    <a href="{%url 'app:marketing_detail' item.marketing_slug %}">
+                                                    <button type="button" class="mt-auto btn btn-primary d-block w-100" style="background-color: #007bff; border-color: #007bff; font-family: Roboto, sans-serif; border-radius: 5px;">View Details</button>
+                                                    </a>
+                                              </div>
+                                            </div>
+                                          {% endfor %}
+                                                             
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </section>
+                                <!--news-block-section-end-->
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of details content section -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--news-block-section-end-->
+
+    <!--advertisement-section-->
+    
+    <!--advertisement-section-->
+    <script>
+        // Get references to the title and other elements
+        var title = document.querySelector('.details__title');
+        var subTitle = document.querySelector('.details__sub-title');
+        var authorDate = document.querySelector('.author__date');
+
+        // Add an event listener to detect when the page is scrolled
+        window.addEventListener('scroll', function () {
+            // Check if the page has been scrolled
+            if (window.scrollY > 50) { // You can adjust the scroll threshold as needed
+                title.classList.add('scrolled'); // Add the 'scrolled' class to the title
+                subTitle.classList.add('scrolled'); // Add the 'scrolled' class to the sub-title
+                authorDate.classList.add('scrolled'); // Add the 'scrolled' class to the author and date
+                $('#author').hide();
+
+            } else {
+                title.classList.remove('scrolled'); // Remove the 'scrolled' class from the title
+                subTitle.classList.remove('scrolled'); // Remove the 'scrolled' class from the sub-title
+                authorDate.classList.remove('scrolled'); // Remove the 'scrolled' class from the author and date
+                $('#author').show();
+            }
+        });
+
+    </script>
+    
+</main>
+
+    <!-- end of main section -->
+{% endblock %}

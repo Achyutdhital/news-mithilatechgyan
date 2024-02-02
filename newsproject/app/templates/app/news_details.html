@@ -1,0 +1,646 @@
+{% extends "app/base.html" %}
+{% load static %}
+    {% block metatag %}
+        <meta property="og:title" content="{{newsDetails.title}}" />
+        <meta property="og:description" content="{{newsDetails.discriptions}}" />
+        <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+        <meta property="og:image" content="http://127.0.0.1:8000{{newsDetails.image.url}}" />
+        <meta property="og:site_name" content="Mithila tech gyan" />
+        <meta property="og:type" content="article">
+    {% endblock %}
+{% block content %}
+<!-- bigyapan-start -->
+
+<main>
+    <style>
+        .details__title {
+            font-size: 35px;
+            /* Set the initial font size */
+            transition: font-size 0.3s ease-in-out;
+            margin-bottom: 10px;
+            /* Add margin to separate the title from content */
+        }
+
+        .details__title.scrolled {
+            font-size: 25px;
+            /* Set the smaller font size when scrolled */
+            margin-top: 15px;
+            /* Reduce margin when scrolled */
+        }
+
+        .details__sub-title,
+        .author__date {
+            opacity: 1;
+            /* Set the initial opacity */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .details__sub-title.scrolled,
+        .author__date.scrolled {
+            opacity: 0;
+            /* Set the opacity to 0 when scrolled */
+            margin-top: 0;
+            /* Remove top margin when scrolled */
+
+        }
+
+        .details__sub-title.hidden,
+        .author__date.hidden {
+            display: none;
+        }
+
+        .share__buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        /* Custom share button styles */
+        .custom-share-button {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+            transition: background-color 0.3s ease-in-out;
+        }
+    
+        /* Custom share button hover effect */
+        .custom-share-button:hover {
+            background-color: #007bff; /* Change to your desired hover color */
+            color: #fff;
+        }
+    </style>
+
+
+    <!--advertisement-section-->
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=650aa7519facbb001257ed05&product=sticky-share-buttons&source=platform" async="async"></script>
+
+    <div class="newsTech-ads mt-30">
+
+
+        <div class="custom-container">
+
+            <div class="adalyticsblock" campaign="wUWzOs6557s6ifpe0VkRj8kDwrSjjHeVn1zY5U1ESGWCfrBo2k" width="100%"><img
+                    width="100%" height="undefined"
+                    src="https://adalytics.prixacdn.net/media/albums/logitechG_MkkslhiIOd.gif"></div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!--advertisement-section-->
+
+    <!-- news details section -->
+    <section class="custom-container mt-10">
+        <div class="for-sticky-header"></div>
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <div class="sharethis-sticky-share-buttons"></div>
+                        {% comment %} <div class="share__buttons">
+                            <!-- Custom Facebook Share Button with Bootstrap Icon -->
+                            <a href="#" target="_blank" class="btn btn-primary custom-facebook-share-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                  </svg>
+                            </a>
+                           <!-- Twitter Share Button -->
+                            <a href="#" target="_blank" class="btn btn-primary custom-twitter-share-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                                  </svg> 
+                            </a>
+
+                            <!-- LinkedIn Share Button -->
+                            <a href="#" target="_blank" class="btn btn-primary custom-linkedin-share-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                                  </svg>
+                                </a>
+
+                            <!-- Copy Link Button (Use JavaScript to copy the link) -->
+                            <button class="btn btn-primary custom-share-button" id="copyLinkButton">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                    <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                    <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                                  </svg>
+                                </button>
+
+                        </div> {% endcomment %}
+                    </div>
+
+
+                    <div class="col-lg-11">
+                        <!-- details content section -->
+                        <div class="news__details">
+                            <!-- content titles section -->
+                            <div class="news__details-titles">
+                                <h1 class="details__title">
+                                    {{newsDetails.title}}
+                                </h1>
+
+                                <h2 class="details__sub-title">
+
+                                </h2>
+
+                                <!--advertisement-section-->
+
+                                <!--advertisement-section-->
+
+                                <div class="author__date" id="author">
+                                    {%for about in about%}
+                                    <p class="author">
+                                        <span class="avatar">
+                                            <a>
+
+                                                <img src={{about.logo.url}} alt="{{about.title}}">
+                                            </a>
+                                        </span>
+                                        <span class="author__name">
+                                            <a>
+
+                                                {{about.title}}
+
+                                            </a>
+                                        </span>
+                                    </p>
+                                    {%endfor%}
+                                    <p class="date">
+                                        <i class="far fa-clock"></i>
+                                        {{newsDetails.update_date}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--advertisement-section-->
+
+                            <!--advertisement-section-->
+
+                            <!-- news image section -->
+
+
+                            <img src={{newsDetails.image.url}} alt="{{newsDetails.title}}">
+
+
+
+
+                            <!-- news content with sidebar section -->
+                            <div class="content__with-sidebar">
+                                <!-- left content -->
+                                <div class="left__content">
+                                    <!--advertisement-section-->
+
+
+                                    <div class="content__desc">
+                                        <!--font-resize-button-start-->
+                                        <!-- <div class="mb-30">
+                                        <div id="chcp_font_size" class="input-group">
+                                            <span class="input-group-btn">
+                                                <button id="btn-increase" class="btn btn-default" type="button">
+                                                    <div>A</div>
+                                                </button>
+                                                <button id="btn-orig" class="btn btn-default " type="button">
+                                                    <div>A</div>
+                                                </button>
+                                                <button id="btn-decrease" class="btn btn-default active" type="button">
+                                                    <div>A</div>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div> -->
+                                        <!--font-resize-button-end-->
+
+                                        <!--detail-para-content-start-->
+                                        <div
+                                            class="news_detail-para para detail-content-paragraph detail-news-details-paragh ">
+                                            <div class="text-justify">
+                                                <p style="text-align: justify;">{{newsDetails.discriptions|safe}}</p>
+                                            </div>
+
+
+
+
+                                            <div class="auto__layout-ads">
+
+
+                                                <div class="newsTech-ads mt-30">
+                                                    <div class="custom-container">
+
+
+                                                        <div class="adalyticsblock"
+                                                            campaign="c3LeX6L8mSnMo4W6MrDwzgWMGQLvaYz4OAjNMqp58At9Yq7u9p"
+                                                            width="100%"></div>
+
+
+
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <!--advertisement-section-->
+
+
+
+                                            <!-- after third advertisement-section-->
+                                            <div class="news_detail-image">
+                                                <figure>
+
+
+                                                    <div class="adalyticsblock"
+                                                        campaign="nLoLDQNYvCYCE36fhGQbVO7NmKfSofxDYVRw7FE1X4ZRrCsTHM"
+                                                        width="100%"></div>
+
+
+                                                </figure>
+                                            </div>
+
+
+
+
+
+
+
+                                            <!--advertisement-section-->
+
+
+
+
+                                            <p class="b-and-i"> पछिल्लो अध्यावधिक: {{newsDetails.update_date}}</p>
+
+
+                                            <!--news gallery section-->
+
+                                            <!--end of the news gallery section-->
+
+                                            <!-- news tag section -->
+                                            <!-- 
+                                        <div class="news__tags">
+                                            
+                                            <div class="tags">
+                                                <a href="/tags/71">
+                                                    #NCHL
+                                                </a>
+                                            </div>
+                                            
+                                            <div class="tags">
+                                                <a href="/tags/2284">
+                                                    #nchl new chairman
+                                                </a>
+                                            </div>
+                                            
+                                        </div>
+                                         -->
+                                            <!-- end of the news tag section -->
+
+                                            <!--advertisement-section-->
+
+
+
+                                            <!-- comments section -->
+                                            <!--advertisement-section-->
+
+                                            <!--advertisement-section-->
+
+                                            <section class="newsTech_section-wrapper">
+                                                <div class="newsTech_section-title-main-wrapper">
+                                                    <div
+                                                        class="newsTech_section-title newsTech_section-title-main mb-30">
+                                                        <a>
+                                                            टिप्पणीहरू
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <div class="fb-comments"
+                                                data-href="https://0.0.0.0:6081/2023/140893/digital-payment"
+                                                data-width="100%" data-numposts="5"></div>
+
+
+
+                                            <!--advertisement-section-->
+
+                                            <!--advertisement-section-->
+
+
+
+
+                                            <!-- <div class="news_detail-prev-next-news">
+                                                
+                                                    <div class="news_detail-prev-wrapper">
+                                                        <div class="news_detail-prev-next-meta news_detail-prev-icon">
+                                                            <a href="/2023/140892">
+                                                                <span style="margin-right: 5px;"><i class="fa-solid fa-angle-left"></i> </span> PREV POST
+                                                            </a>
+                                                        </div>
+                                                        <div class="news_detail-prev-next-headline match-d1">
+                                                            <h4><a href="/2023/140892">२०२२ मा सबैभन्दा धेरै क्रिप्टोकरेन्सी चोरी गर्ने देश उत्तर कोरिया</a></h4>
+                                                        </div>
+                                                    </div>
+                                                
+                                                
+                                                    <div class="news_detail-next-wrapper">
+                                                        <div class="news_detail-prev-next-meta news_detail-next-icon">
+                                                            <a href="/2023/143952">
+                                                                NEXT POST <span style="margin-left: 5px;"> <i class="fa-solid fa-angle-right"></i></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="news_detail-prev-next-headline match-d1">
+                                                            <h4><a href="/2023/143952">स्मार्टफोन बजारमा पुनरागमन गर्ने प्रयासमा ह्वावे, मेट ६० आएसँगै बढायो बजार लक्ष्य</a></h4>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div> -->
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <!--news-block-section-start-->
+                                    <section class="newsTech_section-wrapper">
+                                        <div class="newsTech_section-title-main-wrapper">
+                                            <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                                <a>
+                                                    सम्बन्धित समाचार
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            {% for news in relatedNews%}
+                                            <div class="col-sm-6 col-lg-3">
+                                                <div class="single_grid-wrapper">
+                                                    <div class="single_grid-image mb-15">
+                                                        <div class="image-size image-size-60">
+                                                            <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                                <img src={{news.image.url}} alt="{{news.title}}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single_grid-info ">
+                                                        <div class="single_grid-title mb-10">
+                                                            <h4>
+                                                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                                    {{news.title}}
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <!-- <div class="postmeta mb-15">
+                                                            <div class="postmeta_date">
+                                                                <a href="/2023/143842/nepal-clearing-house-limited">
+                                                                    <span><i class="fa-solid fa-calendar-days"></i></span>भदौ १९, २०८० ९:५६
+                                                                </a>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </section>
+                                    <!--news-block-section-end-->
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of details content section -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <!-- right content -->
+                <div class="sidebar sticky__sidebar">
+                    <!--advertisement-section-->
+
+                    <!--advertisement-section-->
+
+                    <!-- sidebar section -->
+                    <div class="newsTech_content-wrapper">
+                        <div class="row">
+
+
+                            <div class="col-12">
+                                <div class="newsTech_section-title-main-wrapper">
+                                    <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                                        <a>
+                                            ट्रेन्डिङ समाचार
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="newsTech_side-wrapper newsTech_side-min-lgflex">
+                            <ul>
+                                {% for news in trending%}
+                                <li>
+                                    <div class="single_row-wrapper">
+                                        <div class="single_row-side-image">
+                                            <div class="image-size image-size-70">
+                                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                    <img src="{{news.image.url}}" alt="{{news.title}}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="single_row-side-info">
+                                            <div class="postmeta mb-2">
+                                                <div class="postmeta_date">
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        <span><i
+                                                                class="fa-solid fa-calendar-days"></i></span>{{news.update_date}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="single_row-title">
+                                                <h4>
+                                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                                        {{news.title}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end of sidebar section -->
+
+                    <!--advertisement-section-->
+
+                    <!--advertisement-section-->
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end of news details section -->
+
+    <!--news-block-section-start-->
+    <section class="newsTech_section-wrapper">
+        <div class="custom-container">
+            <div class="newsTech_section-title-main-wrapper">
+                <div class="newsTech_section-title newsTech_section-title-main mb-30">
+                    <a>
+                        पछिल्ला अपडेट
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                {%for news in latest %}
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single_grid-wrapper">
+                        <div class="single_grid-image mb-15">
+                            <div class="image-size image-size-60">
+                                <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                    <img src={{news.image.url}} alt="{{news.title}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="single_grid-info ">
+                            <div class="single_grid-title mb-10">
+                                <h4>
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        {{news.title}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="postmeta mb-15">
+                                <div class="postmeta_date">
+                                    <a href="{% url  'app:newsDetails' news.news_slug  %}">
+                                        <span><i class="fa-solid fa-calendar-days"></i></span>{{news.update_date}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </section>
+    <!--news-block-section-end-->
+
+    <!--advertisement-section-->
+
+    <!--advertisement-section-->
+   
+
+    <script>
+        // Get references to the title and other elements
+        var title = document.querySelector('.details__title');
+        var subTitle = document.querySelector('.details__sub-title');
+        var authorDate = document.querySelector('.author__date');
+
+        // Add an event listener to detect when the page is scrolled
+        window.addEventListener('scroll', function () {
+            // Check if the page has been scrolled
+            if (window.scrollY > 50) { // You can adjust the scroll threshold as needed
+                title.classList.add('scrolled'); // Add the 'scrolled' class to the title
+                subTitle.classList.add('scrolled'); // Add the 'scrolled' class to the sub-title
+                authorDate.classList.add('scrolled'); // Add the 'scrolled' class to the author and date
+                $('#author').hide();
+
+            } else {
+                title.classList.remove('scrolled'); // Remove the 'scrolled' class from the title
+                subTitle.classList.remove('scrolled'); // Remove the 'scrolled' class from the sub-title
+                authorDate.classList.remove('scrolled'); // Remove the 'scrolled' class from the author and date
+                $('#author').show();
+            }
+        });
+
+    </script>
+  
+
+    {% comment %} <script>
+        // Function to get the current page's URL
+        function getCurrentPageURL() {
+            return window.location.href;
+        }
+
+        var currentURL = getCurrentPageURL();
+
+  // Find the og:url meta tag by its ID
+        var ogURLMetaTag = document.getElementById("og-url");
+
+        // Set the content attribute of the og:url meta tag to the current URL
+        if (ogURLMetaTag) {
+            ogURLMetaTag.setAttribute("content", currentURL);
+        }
+     {% endcomment %}
+        {% comment %} // Wait for the page to load before setting the URLs
+        document.addEventListener("DOMContentLoaded", function () {
+            // Update Facebook share link
+            var facebookShareButton = document.querySelector('.custom-facebook-share-button');
+            if (facebookShareButton) {
+                facebookShareButton.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(getCurrentPageURL());
+            }
+    
+            // Update Twitter share link
+            var twitterShareButton = document.querySelector('.custom-twitter-share-button');
+            if (twitterShareButton) {
+                twitterShareButton.href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(getCurrentPageURL());
+            }
+    
+            // Update LinkedIn share link
+            var linkedinShareButton = document.querySelector('.custom-linkedin-share-button');
+            if (linkedinShareButton) {
+                linkedinShareButton.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(getCurrentPageURL());
+            }
+    
+            // Add click event listener to the "Copy Link" button
+            var copyLinkButton = document.querySelector('#copyLinkButton');
+            if (copyLinkButton) {
+                copyLinkButton.addEventListener('click', function () {
+                    var copyText = getCurrentPageURL();
+                    var textArea = document.createElement("textarea");
+                    textArea.value = copyText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textArea);
+                    alert("Link copied to clipboard!");
+                });
+            }
+        });
+    </script> {% endcomment %}
+    
+</main>
+
+<!-- end of main section -->
+{% endblock %}

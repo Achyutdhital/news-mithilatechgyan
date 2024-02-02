@@ -1,0 +1,761 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from techpana.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Sep 2023 04:35:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+        Mithila Tech Gyan
+    </title>
+    {% block metatag %}
+    {% endblock %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="max-image-preview:large"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+  
+
+    <!-- Copyright and RSS -->
+    <meta name="copyright" content="Mithila tech gyan"/>
+    <link rel="alternate" type="application/rss+xml" href="rss">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="mithila, tech, gyan"/>
+
+
+    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{aboutUs.logo.url}}">
+    <!-- End Favicon -->
+
+    <!-- Static files -->
+    <link rel="stylesheet" href="{% static 'app/techpana.prixacdn.net/static/assets/css/bootstrap.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/techpana.prixacdn.net/static/assets/vendors/slick/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'app/techpana.prixacdn.net/static/assets/vendors/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'app/techpana.prixacdn.net/static/assets/vendors/fontawesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'app/techpana.prixacdn.net/static/assets/css/style-v.1.0.css' %}"/>
+    
+    <style>.twitter a{background:#000!important}.news-header-date-social-share{align-items:center}.img__size-normal{width:16px;height:auto}.news-header-top-meta{align-items:center}.img__position{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.twitter a{position:relative}</style>
+
+
+    <style>.price-list{margin-left:auto}.price-list a{color:#15b466!important}</style>
+    <style>.sticky .navbar .news-navbar-right-menu .news-navbar-right-menu-item{margin-left:1rem}</style>
+    <style>.news-navbar-right-menu-item{background:#1ae25c}.newsTech_footer-flex{display:flex;gap:10px}@media (max-width:1100px){.navbar-nav{gap:20px}}</style>
+    <style>@media (min-width:576px){#roadBlock .header-nav-logo{display:none}}@media (max-width:575px){.skip-btn{float:right;padding-top:5px;padding-left:6px;padding-right:6px;padding-bottom:5px;font-size:10px}#roadBlock .modal-dialog{max-width:400px!important;margin:30px auto}#roadBlock .modal-header .header-nav-logo{width:80%;margin-left:auto;margin-right:auto;margin-bottom:15px}}.newsTech_comparison-image-block{flex-basis:49%;height:130px;position:relative}.newsTech_comparison-image-block:not(:last-child)::before {content:'vs';background-color:#eee;position:absolute;top:50%;right:-30px;transform:translateY(-50%);font-size:15px;font-weight:600;color:#333;padding:2px 6px 1px;border-radius:50%}.newsTech_comparison-info-details{flex-basis:49%;text-align:center;position:relative}.newsTech_comparison-info-details:not(:last-child)::before{content:'vs';background-color:#eee;position:absolute;top:50%;right:-30px;transform:translateY(-50%);font-size:15px;font-weight:600;color:#333;padding:2px 6px 1px;border-radius:50%}.threeLayerGrid{display:grid;grid-template-columns:repeat(3,1fr);grid-gap:30px}.twoLayerGrid{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:30px}.newsTech_comparison-grid-box{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));grid-gap:1rem}.newsTech_comparison-grid-content{width:100%}.single_grid-overlay-wrapper .single_grid-image a::after{content:"";position:absolute;height:100%;top:0;left:0;bottom:0;right:0;background:linear-gradient(to bottom,rgba(0,0,0,.1),#000)!important}.news__details .news__details-titles .author__date .author .avatar img{object-fit:cover}.details__title{color:#000!important}@media (max-width:767.98px){.newsTech_comparison-grid-box{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}}@media (max-width:575px){.newsTech_comparison-grid-box{grid-template-columns:repeat(auto-fill,minmax(100%,1fr))}}</style>
+    <style>@media (max-width:350px){.newsTech_comparison-grid-box{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}}@media (max-width:575px){.news__details-titles.active .details__title{font-size:16px!important}}@media (max-width:400px){.navbar .nav-bar{grid-column: 1/2;grid-row: 2/3}.navbar .news_sticky-nav{grid-column:span 2;justify-content:center!important}.navbar .news-navbar-right-menu{grid-column: 2/3;grid-row: 2/3}.news-navbar-right-menu-item{height:35px}.news_sticky-nav img{margin-top:15px;margin-bottom:15px}}</style>
+    <style>@media (max-width:400px){footer{word-break:break-word}.newsTech_comparison-info-details{word-break:break-word}.sticky .navbar .news_sticky-nav{border-bottom:1px solid #ddd;justify-content:flex-start!important}.news-navbar-right-menu-item{height:38px}.news-navbar-right-menu{padding:6px 0}.news_sticky-nav img{margin-top:10px;margin-bottom:8px}.sticky .navbar .news-navbar-right-menu{justify-content:end}}.product__section-icon-image{height:45px}.sticky-bottom-ad{z-index:999!important;bottom:60px!important}</style>
+
+    <style>.download-app-box{display:flex;gap:10px}.download-app-content{flex-basis:50%}.download-app-content img{object-fit:contain}.sharethis-inline-share-buttons{margin-top:0!important}@media (max-width:991.98px){.news-navbar-right-menu{flex-basis:unset;margin-left:unset}}@media (max-width:767px){.download-app-box{gap:10px;width:50%}}@media (max-width:575px){.download-app-box{width:70%}}@media (max-width:400px){.sticky .navbar{display:flex}.sticky .navbar .news_sticky-nav{border-bottom:0}}</style>
+    <style>.news-header-top-slider marquee{min-width:400px}@media (max-width:767px){.news-header-top-slider marquee{width:350px}}@media (max-width:575px){.news-header-top-slider marquee{width:100%}}</style>
+
+    <!--sidebar-other-links-->
+    <style>.news-header-other-links{margin-top:5px}.news-header-other-links ul{display:flex;align-items:center;gap:10px}.news-header-other-links ul li a{font-size:16px;transition:all .2s ease-in-out}</style>
+    <!--sidebar-other-links-->
+
+    <style>@media (max-width:575px){.news-header-nav{box-shadow:unset!important;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;margin-top:30px}.news-header-nav.sticky{margin-top:0}.news_sticky-nav{display:block!important;transition:all .3s ease-in-out;text-align:center}.news-navbar-right-menu-item{display:none!important}.news_sticky-nav img{margin-top:0!important;margin-bottom:0!important}.news-header-nav.sticky .news_sticky-nav .news-header-date{line-height:1}.news-header-nav.sticky .news_sticky-nav .news-header-date span{font-size:12px;line-height:1}.news-header-nav.sticky .news_sticky-nav{padding:5px 0 4px}.news-header-middle{display:none}.news-header-top{display:none}}</style>
+
+     <!--bottom-sticky-nav-->
+     <style>.sticky__bottom-nav{position:fixed;left:0;right:0;bottom:0;width:100%;background-color:#fff;padding:10px 15px 5px;box-shadow:0 0 10px rgba(0,0,0,.2);display:none;z-index:111}.sticky__bottom-nav-image{width:24px;height:auto}.sticky__bottom-nav-item:nth-child(1) .sticky__bottom-nav-image{width:22px;padding-top:2px}.sticky__bottom-nav-list{display:flex;justify-content:space-between}.sticky__bottom-nav-list li{flex:1}.sticky__bottom-nav-link{display:flex;align-items:center;flex-direction:column;gap:5px}.sticky__bottom-nav-title{font-size:11px;font-weight:500;color:#15b466}@media (max-width:575px){.scrollToTop{bottom:75px}.sticky__bottom-nav{display:block}}</style>
+    <!--bottom-sticky-nav-->
+
+    <style>.news-navbar-right-menu-item{background:#1ae25c}.news-navbar-right-menu-item a{display:flex;justify-content:center;align-items:center;line-height:1}.news-navbar-right-menu-item:not(:first-child){margin-left:0!important}.news-navbar-right-menu-item .event__icon{width:15px;height:auto}@media (min-width:578px){.news_sticky-nav .news-header-date{display:none}}</style>
+    
+
+    
+<style>.sticky-bottom-ad{position:fixed;bottom:0;left:0;right:0;display:none;z-index:10000}.sticky-bottom-ad img{border-radius:0}.sticky-ad-close-btn{font-size:20px;font-weight:600;line-height:1;background:rgba(255,255,255,.8);display:inline-block;text-align:center;padding:0 5px;position:absolute;top:0;right:0;cursor:pointer}.single_grid-overlay-wrapper .single_grid-image a::after{display:none}.single_grid-overlay-wrapper .single_grid-info::after{content:"";position:absolute;height:100%;top:0;left:0;bottom:0;right:0;background:linear-gradient(to bottom,rgba(0,0,0,.1),#000)!important;z-index:1}.single_grid-info-overlay{z-index:2}.single_grid-title,.single_grid-para,.postmeta_dark{position:relative;z-index:2}@media (max-width:575.98px){.sticky-bottom-ad{display:block}}.modal-content{border:none}.modal-body{border:1px solid #dfdfdf;border-radius:5px}.modal-header{display:flex;flex-direction:row;justify-content:center;align-items:center}.skip-btn{border:none;border-radius:5px;background-color:red;color:#fff;float:right;padding-top:7px;padding-left:10px;padding-right:10px;padding-bottom:7px}.modal-backdrop{background:#fff;opacity:100!important}.modal-body-top{display:flex;flex-direction:row;align-items:center;justify-content:right}.modal-body-top h4{position:absolute;left:50%;transform:translateX(-50%);width:min-content}.newsTech-ads-dark{background-color:#333;padding:30px 30px 0}.newsTech_footer-flex{display:flex;gap:10px}.newsTech_video-content{margin-bottom:15px;margin-top:15px}.sticky__sidebar-60{position:-webkit-sticky;position:sticky;top:60px}.newsTech_feature-list ul{display:flex;gap:15px;flex-wrap:wrap}.newsTech_feature-list ul li{flex-basis:48%}.newsTech_feature-list ul li:not(:last-child) {margin-bottom:unset!important}.newsTech_section-wrapper{margin-top:30px;margin-bottom:30px}.newsTech_feature-main h1{font-size:32px}.newsTech_feature-list{height:unset!important}.single_grid-info-overlay{position:static;bottom:unset;padding:20px 0}.newsTech_feature-main .single_grid-image{min-height:unset;height:auto}.single_grid-overlay-wrapper .single_grid-info::after{display:none}.single_grid-overlay-wrapper,.grid_section-wrapper .single_grid-overlay-wrapper .single_grid-wrapper{height:unset}.newsTech_feature-main h1,.newsTech_feature-main .single_grid-para{color:#000}.newsTech_feature-list{background:transparent;padding:30px 0}.newsTech_white{color:#000!important}.removedAni.active{animation:unset}@media (max-width:767px){.newsTech_feature-main .single_grid-para p{display:none}.removeNews .col-md-4:not(:first-child){display:none}}@media (max-width:575px){.newsTech_feature-list ul li{flex-basis:100%}}</style>
+
+<!--NEW-CSS-UPDATE-FOR-IMAGES-->
+<style>.image-size-80 a{padding-bottom:71.5%!important}.image-size-60 a{padding-bottom:71.5%!important}.image-size-70 a{padding-bottom:71.5%!important}.image-size-62 a{padding-bottom:71.5%!important}.grid_section-wrapper .single_grid-overlay-wrapper{grid-row:span 5!important}</style>
+<!--NEW-CSS-UPDATE-FOR-IMAGES-->
+
+    <!-- End Static files -->
+    
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X009FSPC9J"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X009FSPC9J');</script>
+
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","fbydpr82x3");</script>
+
+
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="../connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=967030014034193&autoLogAppEvents=1" nonce="QxXMEQuJ"></script>
+    <!-- header section -->
+    <header class="">
+        <div class="news-header-top">
+            <div class="custom-container">
+                <div class="news-header-top-content">
+                    <div class="news-header-top-slider">
+                       <div> Quick link:&nbsp;
+                        <a href="/">Tech news feed</a> &nbsp;|&nbsp;
+                        <a href="{% url 'app:marketing' %}">SMM/Digital Marketing</a> &nbsp;|&nbsp;
+                        <a href="{%url 'app:gallery'%}">Video Gallery</a>  &nbsp;|&nbsp;
+                        <a href="#">Bulk SMS</a> 
+
+                       </div>
+
+
+
+                        <!-- <div class="news-header-top-slider-title">
+                            <span>ट्रेन्डिङ:</span>
+                        </div>
+                        <marquee direction="left" speed="normal" behavior="loop" onmouseover="this.stop();"
+                            onmouseout="this.start();">
+                            <div class="news-header-top-slider-items">
+                                
+                                <a href="/2023/143928/nepal-telecom-ring-back-tone-to-prevent-online-fraud">
+                                    अनलाइन ठगीबाट बच्न टेलिकमको नम्बरमा बज्न थाल्यो नयाँ रिङ ब्याक टोन
+                                </a>
+                                
+                                <a href="/2023/143929/indian-tech-investor-anupam-mittal-announces-bat-purchase-for-rising-cricketer-lalit-rajvanshi">
+                                    क्रिकेटर राजवंशीलाई भारतीय टेक इन्भेस्टर अनुपम मित्तलले ब्याट सहयोग गर्ने
+                                </a>
+                                
+                                <a href="/2023/143930/smartphone-with-24-gb-ram">
+                                    के अब तपाईँलाई २४ जीबी र्‍याम भएको फोन चाहिएको हो ?
+                                </a>
+                                
+                                <a href="/2023/143927/byd-to-install-charging-stations-in-nepal">
+                                    नेपालका यी स्थानमा १५ ओटा फास्ट चार्जिङ स्टेसन निर्माण गर्दै बीवाईडी
+                                </a>
+                                
+                                <a href="/2023/143932/tata-tiago-ev-in-nepali-market">
+                                    टियागो ईभी नेपाली बजारमा सार्वजनिक, सुरुवाती मूल्य २२ लाख
+                                </a>
+                                
+                                <a href="/2023/143936/iphone-15-model-launched">
+                                    बहुप्रतिक्षित आईफोन १५ सिरिज सार्वजनिक, कुन मोडेलको मूल्य कति ?
+                                </a>
+                                
+                            </div>
+                        </marquee> -->
+                    </div>
+                    <div class="news-header-date-social-share d-none d-lg-flex">
+                        <div class="news-header-other-links d-flex">
+                        </div>
+                        {% for about in about %}
+                        <div class="news-header-social-share d-flex news-header-top-meta">
+                            {%if about.facebookUrl%}
+                            <div class="news-header-social-share-icon ">
+                                <a href="{{about.facebookUrl}}" target="_blank">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            {%endif%}
+                            {%if about.twitterUrl%}
+                            <div class="news-header-social-share-icon">
+                                <a href="{{about.twitterUrl}}" target="_blank">
+                                    <img class="img__size-normal" src="{% static 'app/techpana.prixacdn.net/media/albums/twitter_2_9gyh0UfT9P.png' %}" alt="">
+                                </a>
+                            </div>
+                            {%endif%}
+
+                            {%if about.instaUrl%}
+                            <div class="news-header-social-share-icon ">
+                                <a href="{{about.instaUrl}}" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                            {%endif%}
+
+                            {%if about.youtubeUrl%}
+                            <div class="news-header-social-share-icon">
+                                <a href="{{about.youtubeUrl}}" target="_blank">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </div>
+                            {%endif%}
+                            {%if about.tiktokUrl%}
+                            <div class="news-header-social-share-icon">
+                                <a href="{{about.tiktokUrl}}" target="_blank">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                            </div>
+                            {%endif%}
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-header-middle">
+            <div class="custom-container">
+                <div class="news-header-middle-content d-flex">
+                    <div class="news-header-logo">
+                        {%for about in about%}
+                        <div class="news-header-logo-img">
+                            <a href="{%url 'app:index'%}">
+                                <img src="{{about.logo.url}}" alt="">
+                            </a>
+                        </div>
+                        {%endfor%}
+                        <div class="news-header-date ">
+                            <span>{% now "l d F, Y" %}</span> 
+                        </div>
+                    </div>
+                    <div class="news-header-ads-wrapper">
+                        <div class="news-header-ads-content" style="width: 70%;">
+                            <div class="adalyticsblock" campaign="wUWzOs6557s6ifpe0VkRj8kDwrSjjHeVn1zY5U1ESGWCfrBo2k" width="100%"><img width="100%" height="undefined" src="https://adalytics.prixacdn.net/media/albums/logitechG_MkkslhiIOd.gif"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+<!-- navbar start -->
+<div class="news-header-nav" id="navbar">
+    <div class="custom-container">
+        <div class="position-relative">
+            <div class="news-header-nav-content">
+                <nav class="navbar navbar-expand-lg  news-navbar-content">
+
+                    <div class="nav-bar">
+                        <div class="news-header-nav-bar">
+                            <a href="#">
+                                <i class="fa-solid fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--sticky-logo-start-->
+                    <div class="news_sticky-nav ">
+                        {%for about in about%}
+                        <a href="/">
+                            <img src="{{about.logo.url}}" alt="">
+                        </a>
+                        <div class="news-header-date ">
+                            <span>{% now "l d F, Y" %}</span>
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <!--sticky-logo-end-->
+
+                    <!--Collapsible Content-->
+                    <div class="collapse navbar-collapse news-navbar-collapse " id="exnavbar">
+                        <!--links-->
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <a href="/" class="nav-link">
+                                    गृहपृष्ठ
+                                </a>
+                            </li>
+                            
+                            {% for category in allCategories %}
+                            {% with subcategories=category.categorie.all %}
+                                {% if subcategories %}
+                                    <li class="nav-item dropdown">
+                                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}" class="nav-link dropdown-toggle" id="navbardropdownlink" aria-haspopup="true" aria-expanded="false">
+                                            {{ category.categorie_name }}
+                                            <span><i class="fa-solid fa-angle-down"></i></span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbardropdownlink">
+                                            <div>
+                                                <div class="dropdown-box">
+                                                    {% for subcategory in subcategories %}
+                                                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug sub_category_slug=subcategory.subctgslug %}" class="dropdown-item">{{ subcategory.subcategorie_name }}</a>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="news-header-search">
+                <div class="news-header-search-form">
+                    <input type="text" id="search-input" placeholder="यहाँ खोज्नुहोस्">
+                    <button id="search-button">
+                        <img src="{% static 'app/techpana.prixacdn.net/static/assets/images/close-w.png' %}" alt="">
+                    </button>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+</div>
+<!-- navbar end -->
+<div id="search-results">
+    <!-- Search results will be displayed here -->
+</div>
+<!--side-nav-sect5ion-start-->
+<div class="side-nav side-nav-position ">
+    <div class="side-nav-close">
+        <div class=" d-flex align-items-center">
+            <span><img src="{% static 'app/techpana.prixacdn.net/static/assets/images/close.png' %}" alt="close"></span>
+        </div>
+    </div>
+    <div class="side-nav-content">
+        <nav class="side-navbar">
+            <ul>  
+                <li class="active">
+                    <a href="/">गृहपृष्ठ </a>
+                </li>
+                {% for category in allCategories %}
+                {% with subcategories=category.categorie.all %}
+                    {% if subcategories %}
+                        <li>
+                            <div class="side-navbar-dropdown">
+                                <div class="side-navbar-dropdown-link d-flex justify-content-between">
+                                    <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">{{ category.categorie_name }}</a>
+                                    <span><i class="fa-solid fa-angle-down"></i></span>
+                                </div>
+                                <div class="side-navbar-dropdown-items">
+                                    <ul>
+                                        {% for subcategory in subcategories %}
+                                            {% if subcategory.maincategorie == category %}
+                                                <li><a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug sub_category_slug=subcategory.subctgslug %}">{{ subcategory.subcategorie_name }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        
+            <!-- Categories without Subcategories -->
+            {% for category in allCategories %}
+                {% with subcategories=category.categorie.all %}
+                    {% if not subcategories %}
+                        <li class="nav-item">
+                            <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}" class="nav-link">
+                                {{ category.categorie_name }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+
+                
+                    
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--side-nav-sect5ion-end-->
+
+
+
+<!--search-popup-start-->
+<div class="search-box ">
+    <div class="search-box-wrapper">
+        <div class="search-box-form">
+            <form method="get" >
+                <div class="form-row">
+                    <input type="text" name="q" id="search_field" placeholder="यहाँ टाईप गर्नुहोस् ...">
+                    <button>
+                        <img src="{% static 'app/techpana.prixacdn.net/static/assets/images/search-white.png' %}" alt="">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="#" class="search-box-close">
+        <img src="{% static 'app/techpana.prixacdn.net/static/assets/images/close-white.png' %}" alt="">
+    </a>
+</div>
+<!--search-popup-end-->
+
+    </header>
+    <!-- end of header section -->
+    
+{%block content%}
+
+
+{% endblock %}
+<!--news-block-section-end-->
+
+    <!-- end of main section -->
+
+    <!-- footer section -->
+    <footer>
+        <div class="newsTech_footer-wrapper">
+            <div class="newsTech_footer-top-wrapper">
+                <div class="custom-container">
+                    <div class="newsTech_footer-top">
+                        <div class="row">
+                            {%for about in about%}
+
+                            <div class="col-lg-3 ">
+                                <div class="newsTech_footer-logo mb-4">
+                                    <a href="index.html">
+                                        <img src="{{about.logo.url}}" alt="{{about.title}}">
+                                    </a>
+                                </div>
+                                <div class="newsTech_footer-info">
+                                    <span>{{about.title}}</span>
+                                </div>
+                                <div class="newsTech_footer-list mb-4">
+                                    <ul>
+                                        <li>
+                                            {{about.address}}
+                                        </li>
+                                        <li>
+                                            Email:
+                                            <a href="mailto:{{about.email}}">
+                                                <span class="__cf_email__" data-cfemail="5e373038311e2a3b3d362e3f303f703d3133">{{about.email}}</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            Web:
+                                            <a href="{{about.website}}">
+                                                {{about.website}}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            फोन:
+                                            <a href="tel: {{about.contactNo}}">
+                                                {{about.contactNo}}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            सूचना विभाग दर्ता नं. {{about.DepartmentRegistrationNo}}
+                                        </li>
+                                        <li>
+                                            सम्पादक:
+                                            <a>
+                                                {{about.editor}}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span> विज्ञापनका लागि: </span>
+                                            <a href="mailto:{{about.adEmail}}">
+                                                <span class="__cf_email__" data-cfemail="c9a2acbda0a7ae89bdacaaa1b9a8a7a8e7aaa6a4">{{about.adEmail}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="newsTech_footer-content mb-4">
+                                    <div class="newsTech_footer-title mb-3 ">
+                                        <h4>
+                                            <a>
+                                                Follow us
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="newsTech_footer-social-icon d-flex flex-wrap ">
+                                        {%if about.facebookUrl%}
+                                        <div class="newsTech_footer-social-icon-items facebook">
+                                            <a href="{{about.facebookUrl}}" target="_blank">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                        </div>
+                                        {%endif%}
+                                        {%if about.twitterUrl%}
+                                        <div class="newsTech_footer-social-icon-items twitter">
+                                            <a href="{{about.twitterUrl}}" target="_blank">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                                                  </svg>
+                                            </a>
+                                        </div>
+                                        {%endif%}
+                                        {%if about.instaUrl%}
+                                        <div class="newsTech_footer-social-icon-items instagram">
+                                            <a href="{{about.instaUrl}}" target="_blank">
+                                                <i class="fa-brands fa-instagram"></i>
+                                            </a>
+                                        </div>
+                                        {%endif%}
+                                        {%if about.youtubeUrl%}
+                                        <div class="newsTech_footer-social-icon-items youtube">
+                                            <a href="{{about.youtubeUrl}}" target="_blank">
+                                                <i class="fa-brands fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                        {%endif%}
+                                        {%if about.tiktokUrl%}
+                                        <div class="newsTech_footer-social-icon-items tiktok">
+                                            <a href="{{about.tiktokUrl}}" target="_blank">
+                                                <i class="fa-brands fa-tiktok"></i>
+                                            </a>
+                                        </div>
+                                        {%endif%}
+                                    </div>
+                                </div>
+
+                            </div>
+                            {%endfor%}
+                            <div class="col-md-9">
+                                <div class="row">
+                                    {% for category in allCategories %}
+                                        <div class="col-md-4 col-lg-4">
+                                            <div class="newsTech_footer-content mb-4">
+                                                <div class="newsTech_footer-title mb-3">
+                                                    <h4>
+                                                        <a href="{% url 'app:news_category' main_category_slug=category.main_ctg_slug %}">
+                                                            {{ category.categorie_name }}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            
+                                
+                                <div class="newsTech_footer-content mb-4 newsTech_footer-flex ">
+                                    <div class="newsTech_footer-title mb-3">
+                                        <h5>
+                                            <a href="{%url 'app:contact'%}">
+                                                Contact
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div>|</div>
+                                    <div class="newsTech_footer-title mb-3">
+                                        <h5>
+                                            <a href="{%url 'app:team'%}">
+                                                Our Team
+                                            </a>
+                                        </h5>
+                                    </div>
+                                </div>  
+
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <!-- end of footer section -->
+
+    <!--scroll-to-top-->
+    <div class="scrollTop-wrap">
+        <a href="# " class="scrollToTop " title="click here for top "><i class="fas fa-angle-up"></i></a>
+    </div>
+    <!--scroll-to-top-->
+
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'app/techpana.prixacdn.net/static/assets/js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'app/techpana.prixacdn.net/static/assets/js/bootstrap.js' %}"></script>
+    <script src="{% static 'app/techpana.prixacdn.net/static/assets/js/jquery.matchHeight-min.js' %}"></script>
+    <script src="{% static 'app/techpana.prixacdn.net/static/assets/vendors/fontawesome/js/all.js' %}"></script>
+    <script src="{% static 'app/techpana.prixacdn.net/static/assets/vendors/slick/slick.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/techpana.prixacdn.net/static/assets/vendors/slick/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/techpana.prixacdn.net/static/assets/js/jquery.matchHeight-min.js' %}"></script>
+    <script src="{% static 'app/techpana.prixacdn.net/static/assets/js/main-v0.1.js' %}"></script>
+    <script src="{% static 'app/adalytics.prixacdn.net/static/dist/js/adalytics71de.js?v=34'%}" type="text/javascript"></script>
+    <script>
+        $('.newsTech_slider').slick({
+            dots: false,
+            infinite: false,
+            arrows: true,
+            speed: 300,
+            slidesToShow: 8,
+            slidesToScroll: 1,
+            prevArrow:'<div class="arrow arrow_prev silderfourGridPrev"><span><i class="fa-solid fa-chevron-left"></i></span></div>',
+            nextArrow:'<div class="arrow arrow_next silderfourGridNext"><span><i class="fa-solid fa-chevron-right"></i></span></div>',
+            responsive: [{
+                    breakpoint: 1199.98,
+                    settings: {
+                        slidesToShow: 6,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 991.98,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 767.98,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 575.98,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 400.98,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
+     <script>
+        backdrop.addEventListener('click', () => {
+        backdrop.remove();
+        $('.search__field input').val('');
+        $('.side-nav').removeClass("active");
+        $('.search-box').css('display', 'none');
+        $('.product__add-btn').css('z-index', '0');
+        $('.search__product-list').removeClass('active');
+        $('.product__list-dropdown').removeClass('active');
+    });
+    </script>
+
+    <script>
+        $('#news-navbar-search').click(function(){
+            $('#search_field').focus();
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $("#search_button").click(function() {
+                var query = $("#search_field").val().toLowerCase();
+    
+                $(".content p").each(function() {
+                    var text = $(this).text().toLowerCase();
+                    if (text.includes(query)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    $('.sticky-ad-close-btn').click(function () {
+        $(this).parent('.sticky-bottom-ad').hide(200);
+    });
+</script>
+<script>
+	//reveal content on click
+	$(document).ready(function () {
+    		$('.reveal__content').click(function (e) {
+        		e.preventDefault();
+        		$(this).parent('.view__all').find('.reveal__content').toggleClass('active');
+        		$(this).parents('.custom-container').find('.hiddenContent').toggleClass('active');
+    		});
+	});
+</script>
+<script>
+    $(document).ready(function(e){
+        $('#roadBlock').modal('show');
+
+        setTimeout(function(){
+            $('#roadBlock').modal('hide');
+        }, 10000)
+    });
+</script>
+<script>
+    $('.newsTech_video-slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        prevArrow: '<div class="arrow_vertical arrow_vertical-prev "><span><i class="fa-solid fa-chevron-up"></i></span></div>',
+        nextArrow: '<div class="arrow_vertical arrow_vertical-next "><span><i class="fa-solid fa-chevron-down"></i></span></div>',
+        slidesToShow: 4,
+        vertical: true,
+        verticalSwiping: true,
+        slidesToScroll: 4,
+        responsive: [{
+                breakpoint: 1199,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+</script>
+
+<script>
+    function MatchHeight1() {
+    $('.match-1')
+            .matchHeight({});
+    }
+    $(document).ready(function() {
+        MatchHeight1();
+    });
+</script>
+<script>
+    function markAsActive(event, currentLink) {
+        // event.preventDefault();
+        const links = document.querySelectorAll('.nav-link');
+
+        // Remove the "active" class from the previously clicked link
+        links.forEach(link => link.classList.remove('active'));
+
+        // Add the "active" class to the clicked link
+        currentLink.classList.add('active');
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchButton.addEventListener('click', function () {
+            const query = searchInput.value.trim();
+
+            // Check if the search query is not empty
+            if (query !== '') {
+                // Perform the search operation (you can use AJAX here)
+                // For demonstration purposes, we'll just display the query as the result
+                searchResults.innerHTML = `Search results for: ${query}`;
+            } else {
+                searchResults.innerHTML = 'Please enter a search query.';
+            }
+        });
+    });
+</script>
+
+<script>(function(){var js = "window['__CF$cv$params']={r:'8065ecbafec09164',t:'MTY5NDY2NjE0Mi4zMDcwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/0cecfec7/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+
+
+<!-- Mirrored from techpana.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Sep 2023 04:37:40 GMT -->
+</html>
